@@ -1,9 +1,9 @@
 import React from "react"
 import './main.css';
-import { mongoose } from "mongoose";
-import { connectdb } from "./config/db";
-import express from "express";
-const app = express();
+//import { mongoose } from "mongoose";
+//import { connectdb } from "./config/db";
+//import express from "express";
+//const app = express();
 
 //connectdb();
 
