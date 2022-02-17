@@ -65,12 +65,11 @@ urlRoutes.route("/").post(function (req, response) {
 
 // This section will check for expiration and delete the url if expired.
 urlRoutes.route("/delete/:code").delete((req, response) => {
-  let db_connect = dbo.getDb();
   let myquery = { urlCode: req.params.code };
-  db_connect.collection("records").deleteOne(myquery, function (err, obj) {
+  Url.deleteOne(myquery, function (err, res) {
     if (err) throw err;
     console.log("1 document deleted");
-    response.status(obj);
+    response.json(res);
   });
 });
 

@@ -10,6 +10,8 @@ const generateId = () => {
 const Main = (props) => {
 
   const [text, setState] = useState();
+  const [generated, setGenerated] = useState(false);
+  const [data, setData] = useState();
 
   const generate = (e) => {
     e.preventDefault();
@@ -22,9 +24,11 @@ const Main = (props) => {
       Date: new Date(),
       expiration: calc(new Date())
     };
-    axios.post('http://localhost:3001/', obj).then(res => {console.log(res)});
+    axios.post('http://localhost:3001/', obj).then(res => { });
+    setGenerated(true);
+    setData(obj);
   };
-
+console.log(data);
   const calc = (date) => {
     let d = new Date(date);
     d.setDate(d.getDate() + 1);
@@ -33,9 +37,7 @@ const Main = (props) => {
 
   const textDataChange = (e) => {
     setState(e.target.value);
-    console.log(e.target.value);
   };
-
   return (
     <div>
           <div className='header'>
@@ -43,13 +45,13 @@ const Main = (props) => {
             <center> <h2>Welcome to Code Share</h2></center>
             <div className='body'>
             <form name="codesharedata" onSubmit={ generate } method='POST'>
-              <label>Paste your code:  <br/> <br/>
+              <label>Paste your code:  <br/><br/>
               <textarea onChange={textDataChange} name='code' rows='10' cols='50' placeholder='Paste your data here...' autoComplete='TRUE' className="code"></textarea><br/>
               </label><br/>
-              <input type="submit" value="Generate link"></input>
+              <input type="submit" value="Generate link" className="Button"></input>
             </form>
             </div>
-            
+            {generated && <center><p>Your link is: <a href={data.shortUrl} target="_blank" className="link-generate">{data.shortUrl}</a></p></center>}
           </div>
       </div>
   );
