@@ -16,7 +16,7 @@ const Main = (props) => {
   const generate = (e) => {
     e.preventDefault();
     const urlid = generateId();
-    const urlgen= 'http://localhost:3000/' + urlid;
+    const urlgen= 'https://agile-reef-63966.herokuapp.com/' + urlid;
     const obj = {
       urlCode: urlid,
       shortUrl: urlgen,
@@ -24,7 +24,7 @@ const Main = (props) => {
       Date: new Date(),
       expiration: calc(new Date())
     };
-    axios.post('http://localhost:3001/', obj).then(res => { });
+    axios.post('https://agile-reef-63966.herokuapp.com/', obj).then(res => { });
     setGenerated(true);
     setData(obj);
   };
