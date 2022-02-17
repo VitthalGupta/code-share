@@ -16,7 +16,7 @@ const Main = (props) => {
   const generate = (e) => {
     e.preventDefault();
     const urlid = generateId();
-    const urlgen= 'https://agile-reef-63966.herokuapp.com/' + urlid;
+    const urlgen= 'https://damp-brook-52601.herokuapp.com/' + urlid;
     const obj = {
       urlCode: urlid,
       shortUrl: urlgen,
