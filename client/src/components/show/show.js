@@ -11,7 +11,7 @@ const Show = (props) => {
     const [text, setState] = useState();
 
     useEffect(() => {
-        axios.get('https://agile-reef-63966.herokuapp.com/show/' + code).then(res => {
+        axios.get('https://damp-brook-52601.herokuapp.com/show/' + code).then(res => {
             setdata(res.data[0]);
             setfetched(true);
     });
