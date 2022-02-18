@@ -87,6 +87,12 @@ urlRoutes.route("/").post(function (req, response) {
 //     });
 // });
 
+// Route for decryption
+// urlRoutes.route("/decrypt/:code").post(function (req, res) {
+//   let myquery = { urlCode: req.params.code };
+  
+// });}
+
 // This section will check for expiration and delete the url if expired.
 urlRoutes.route("/delete/:code").delete((req, response) => {
   let myquery = { urlCode: req.params.code };

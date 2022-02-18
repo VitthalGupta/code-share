@@ -8,8 +8,10 @@ const Show = (props) => {
     const {code} = useParams();
     const [data,setdata] = useState();
     const [fetched,setfetched] = useState(false);
-    const [text, setState] = useState();
+    const [text, setText] = useState();
     const [hide, setHide] = useState(true);
+    const [decrypt, setDecrypt] = useState(false);
+    const [decryptdata, setDecryptdata] = useState();
 
     useEffect(() => {
         axios.get('https://agile-reef-63966.herokuapp.com/show/' + code).then(res => {
@@ -19,11 +21,21 @@ const Show = (props) => {
     }, []);
     console.log(data);
     const textDataChange = (e) => {
-    setState(e.target.value);
+    setText(e.target.value);
     console.log(e.target.value);
   };
-  if(data.encrypt === 'true'){
-
+  if(fetched){
+    if(data.encrypt === 'true'){
+      setHide(false);
+    }
+    else{
+      setHide(true);
+    }
+  }
+  if(fetched){
+    if(data.encryptkey === text){
+      setDecrypt(true);
+    }
   }
     return (
         <div>
@@ -36,7 +48,7 @@ const Show = (props) => {
               <textarea onChange={textDataChange} name='code' rows='10' cols='50' placeholder='Paste your data here...' autoComplete='TRUE' value={fetched && data.pasteData} className="code"></textarea><br/>
               </label><br/>
               {hide &&<input type="text" name="decryptkey" placeholder="Enter your key"  onChange={textDataChange} className="decryptkey" />}<br/>
-              <input type="submit" value="Modify expiry data" className="Modify"></input>
+              <input type="submit" value="Verify" className="verify"></input>
             </form>
             </div>
             

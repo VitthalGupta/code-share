@@ -46,7 +46,6 @@ console.log(data);
   };
   const encryptDataChange = (e) => {
     setEncrypt(e.target.value);
-
   };
   const encryptKeyChange = (e) => {
     setEncryptkey(e.target.value);

@@ -4,3 +4,6 @@ Sharing Code and other documents by just adding your code to the site is a great
 
 ## Stack Used
 ### MERN Stack
+
+Frontend: React 
+ hosted on heroku: https://damp-brook-52601.herokuapp.com/
