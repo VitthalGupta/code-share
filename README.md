@@ -45,4 +45,4 @@ npm start
 ## UI
 ![main.js](assets/Screenshot%202022-02-18%20at%206.58.50%20AM.png)
 ![main.js with data](assets/Screenshot%202022-02-18%20at%207.04.48%20AM.png)
-![show.js](assets/Screenshot%202022-02-18%20at%208.11.44%20AM.png)
+![show.js](assets/Screenshot%202022-02-18%20at%207.11.44%20AM.png)
