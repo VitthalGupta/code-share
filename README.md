@@ -43,6 +43,6 @@ npm install
 npm start
 ```
 ## UI
-![main.js](https://github.com/VitthalGupta/code-share/blob/main/assets/Screenshot%202022-02-18%20at%206.58.50%20AM.png)
-![main.js with data](https://github.com/VitthalGupta/code-share/blob/main/assets/Screenshot%202022-02-18%20at%206.58.50%20AM.png)
-![show.js](https://github.com/VitthalGupta/code-share/blob/main/assets/Screenshot%202022-02-18%20at%206.58.50%20AM.png)
+![main.js](assets/Screenshot%202022-02-18%20at%206.58.50%20AM.png)
+![main.js with data](assets/Screenshot%202022-02-18%20at%206.58.50%20AM.png)
+![show.js](assets/Screenshot%202022-02-18%20at%206.58.50%20AM.png)
