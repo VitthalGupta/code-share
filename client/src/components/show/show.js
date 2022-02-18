@@ -24,19 +24,19 @@ const Show = (props) => {
     setText(e.target.value);
     console.log(e.target.value);
   };
-  if(fetched){
-    if(data.encrypt === 'true'){
-      setHide(false);
-    }
-    else{
-      setHide(true);
-    }
-  }
-  if(fetched){
-    if(data.encryptkey === text){
-      setDecrypt(true);
-    }
-  }
+  // if(fetched){
+  //   if(data.encrypt === 'true'){
+  //     setHide(false);
+  //   }
+  //   else{
+  //     setHide(true);
+  //   }
+  // }
+  // if(fetched){
+  //   if(data.encryptkey === text){
+  //     setDecrypt(true);
+  //   }
+  // }
     return (
         <div>
             <div className='header'>
