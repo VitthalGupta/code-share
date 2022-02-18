@@ -5,7 +5,9 @@ const urlSchema= new mongoose.Schema({
     shortUrl: String,
     pasteData: String,
     date: {type: String, default: Date.now()},
-    expiration: String
+    expiration: String,
+    encrypt: {type: String, default: 'false'},
+    encryptkey: String
 })
 
 module.exports = mongoose.model('urls', urlSchema);

@@ -11,7 +11,26 @@ const dbo = require("../db/conn");
 // importing models
 const Url = require("../models/model");
 
-
+async function encrypt(data,key){
+  try {
+    const url = 'https://classify-web.herokuapp.com/api/encrypt';
+    const jsonData = JSON.stringify({ 
+            data: data , key: key
+        });
+    let response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: jsonData
+        });
+        const result = await response.json();
+        console.log(result);
+        return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // This section will help you get a url by id
 urlRoutes.route("/show/:code").get(function (req, res) {
@@ -34,7 +53,12 @@ urlRoutes.route("/").post(function (req, response) {
     pasteData: req.body.pasteData,
     date: new Date(),
     expiration: req.body.expiration,
+    encrypt: req.body.encrypt,
+    encryptkey: req.body.encryptkey
   });
+  if (req.body.encrypt === 'true'){
+    myobj.pasteData = encrypt(req.body.pasteData, req.body.encryptkey);
+  }
   myobj.save(function (err, result) {
     if (err) throw err;
     response.json(result);
