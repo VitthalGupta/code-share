@@ -2,7 +2,7 @@ import './App.css';
 import React from "react";
 import { BrowserRouter as Router, Routes, Route,} from "react-router-dom";
 import { ReactDOM } from 'react';
-import Navbar from './components/navbar';
+// import Navbar from './components/navbar';
 import Main from './components/main/main';
 import Show from './components/show/show';
 
