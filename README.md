@@ -2,6 +2,11 @@
 
 Sharing Code and other documents by just adding your code to the site is a great way to share code and documents.
 
+Project Submitted by:
+Name: Vitthal Gupta
+ID: B319063
+College: IIIT Bhubaneswar
+
 ## Stack Used
 ### MERN Stack
 
@@ -11,7 +16,7 @@ Frontend: React
 Backend: Express Node.js
     hosted on heroku: https://agile-reef-63966.herokuapp.com/
 
-DataBase: MongoDB
+DataBase: DataBase
     hosted on mongoDB Atlas
 
 ## How to setup Website
