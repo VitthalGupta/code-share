@@ -42,7 +42,6 @@ cd client/
 npm install
 npm start
 ```
-## UI
-![main.js](assets/Screenshot%202022-02-18%20at%206.58.50%20AM.png)
-![main.js with data](assets/Screenshot%202022-02-18%20at%207.04.48%20AM.png)
-![show.js](assets/Screenshot%202022-02-18%20at%207.11.44%20AM.png)
+## Video Description
+https://user-images.githubusercontent.com/31046067/154782522-98dc2b71-83d7-496d-8aaf-0160ac2540d8.mov
+
