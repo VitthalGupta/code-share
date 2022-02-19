@@ -7,7 +7,8 @@ const urlSchema= new mongoose.Schema({
     date: {type: String, default: Date.now()},
     expiration: String,
     encrypt: {type: String, default: 'false'},
-    encryptkey: String
+    encryptkey: String,
+    clientIps: []
 })
 
 module.exports = mongoose.model('urls', urlSchema);

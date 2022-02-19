@@ -2,7 +2,8 @@ import React, {useState, useEffect} from "react";
 import "./main.css";
 import axios from 'axios';
 import shortid from 'shortid';
-
+const backurl = process.env.REACT_APP_BACKEND_URL;
+const fronturl = process.env.REACT_APP_FRONTEND_URL;
 const generateId = () => {
     return shortid.generate();
 };
@@ -14,12 +15,16 @@ const Main = (props) => {
   const [data, setData] = useState();
   const [encrypt, setEncrypt] = useState(false);
   const [encryptkey, setEncryptkey] = useState();
-  const [hide, sethide] = useState(true);
 
   const generate = (e) => {
     e.preventDefault();
     const urlid = generateId();
-    const urlgen= 'https://damp-brook-52601.herokuapp.com/' + urlid;
+    console.log("EncryptKey:", encryptkey);
+    // if(encryptkey == undefined){
+    //   const EncryptKey = generateId();
+    // }
+    console.log("Encryptkey after if statement",encryptkey)
+    const urlgen= fronturl + urlid;
     const obj = {
       urlCode: urlid,
       shortUrl: urlgen,
@@ -29,7 +34,7 @@ const Main = (props) => {
       encrypt: encrypt,
       encryptkey: encryptkey
     };
-    axios.post('https://agile-reef-63966.herokuapp.com/', obj).then(res => { });
+    axios.post(backurl, obj).then(res => { });
     setGenerated(true);
     setData(obj);
   };
@@ -42,22 +47,26 @@ console.log(data);
 
   const textDataChange = (e) => {
     setText(e.target.value);
-    sethide(false);
   };
+
   const encryptDataChange = (e) => {
-    setEncrypt(e.target.value);
+    if(e.target.checked === true) setEncrypt(true);
+    else setEncrypt(false);
   };
+
   const encryptKeyChange = (e) => {
-    setEncryptkey(e.target.value);
+    console.log(e.target.value)
+    setEncryptkey(e.target.value)
   };
-  const handleEncrypt= (e) =>{
-    if (e.target.checked){
-      sethide(false);
-    }
-    else{
-      sethide(true);
-    }
-  }
+  // const handleEncrypt= (e) =>{
+  //   if (e.target.checked){
+  //     sethide(false);
+  //   }
+  //   else{
+  //     sethide(true);
+  //   }
+  // }
+  console.log("ENcrypt Key: ",encryptkey)
   return (
     <div>
           <div className='header'>
@@ -67,12 +76,13 @@ console.log(data);
               <label>Paste your code:  <br/><br/>
               <textarea onChange={textDataChange} name='code' rows='10' cols='50' placeholder='Paste your data here...' autoComplete='TRUE' className="code"></textarea><br/>
               </label>
-              <label>add encryption ?<input type="checkbox" name="encrypt" onChange={encryptDataChange} onChange={handleEncrypt}  className="encrypt" /></label>
-              {!hide && <input type="text" name="encryptkey" onChange={encryptKeyChange} className="encryptkey" placeholder="Enter key" />}<br/>
+              <label>add encryption ?<input type="checkbox" name="encrypt" onChange={encryptDataChange} className="encrypt" /></label>
+              {encrypt && <input type="text" name="encryptkey" onChange={encryptKeyChange} className="encryptkey" placeholder="Enter key" />}<br/>
               <input type="submit" value="Generate link" className="Button" ></input>
             </form>
             </div>
             {generated && <center><p>Your link is: <a href={data.shortUrl} target="_blank" className="link-generate">{data.shortUrl}</a></p></center>}
+            {generated && encrypt && <center><p>Your Key is: {encryptkey} </p></center>}
           </div>
       </div>
   );

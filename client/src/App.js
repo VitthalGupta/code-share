@@ -5,6 +5,8 @@ import { ReactDOM } from 'react';
 // import Navbar from './components/navbar';
 import Main from './components/main/main';
 import Show from './components/show/show';
+import Collect from  './components/colllection/collect';
+import ViewIp from './components/viewIP/viewIP';
 
 
 // const Routing = () => {
@@ -24,6 +26,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/:code" element={<Show/>}/>
+        <Route path="/urlList" element={<Collect/>} />
+        <Route path="/urlList/view/:code" element={<ViewIp/>}/>
       </Routes>
     </Router>
   );
